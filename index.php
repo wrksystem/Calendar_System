@@ -1,3 +1,7 @@
+<?php
+include("db/conection.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +13,35 @@
     <header>
         <h1>Calendar System 1.0</h1>
         <nav>
-            <a href="#">Home</a> |
-            <a href="#">Contact</a> |
-            <a href="#">Tasks</a> |
-            <a href="#">Events</a> 
+            <a href="index.php?menuop=home">Home</a> |
+            <a href="index.php?menuop=contact">Contact</a> |
+            <a href="index.php?menuop=tasks">Tasks</a> |
+            <a href="index.php?menuop=events">Events</a> 
         </nav>
     </header>
     <main>
+    <hr>
     <?php
+        $menuop = (isset($_GET["menuop"]))?$_GET["menuop"]:"home";
 
-    ?>
+        switch($menuop){
+            case 'home':
+                include("pages/home/home.php");
+                break;
+            case 'contact':
+                include("pages/contacts/contacts.php");
+                break;
+            case 'tasks':
+                include("pages/tasks/tasks.php");
+                break;
+            case 'events':
+                include("pages/events/events.php");
+                break;
+            default:
+                include("pages/home/home.php");
+                break;
+        }
+    ?>    
     </main>    
 </body>
 </html>
