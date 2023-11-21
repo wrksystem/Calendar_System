@@ -2,6 +2,10 @@
     <h3>Contacts Page</h3>
 </header>
 
+<div>
+    <a href="index.php?menuop=register_contact">New Contact</a>
+</div>
+
 <table border="1" >
     <thead>
         <tr>

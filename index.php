@@ -31,6 +31,12 @@ include("db/conection.php");
             case 'contact':
                 include("pages/contacts/contacts.php");
                 break;
+            case 'register_contact':
+                include("pages/contacts/register_contact.php");
+                break;
+            case 'insert_contact':
+                include("pages/contacts/insert_contact.php");
+                break;    
             case 'tasks':
                 include("pages/tasks/tasks.php");
                 break;
