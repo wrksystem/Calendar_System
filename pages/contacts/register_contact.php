@@ -21,6 +21,11 @@
         </div>
 
         <div>
+            <label for="addressContact">Endereço</label>
+            <input type="text" name="addressContact">
+        </div>
+
+        <div>
             <label for="genderContact">Sexo</label>
             <input type="text" name="genderContact">
         </div>
