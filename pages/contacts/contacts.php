@@ -16,7 +16,8 @@
             <th>Address</th>
             <th>Gender</th>
             <th>Data Nasc</th>
-            <th>Actions</th>            
+            <th>Edit</th>
+            <th>Delete</th>            
         </tr>
     </thead>
     <tbody>
@@ -50,6 +51,7 @@
             <td><?= $data["genderContact"] ?></td>
             <td><?= $data["dataNascContact"] ?></td>
             <td><a href="index.php?menuop=edit_contact&idContacts=<?= $data["idContacts"] ?>">Edit</a></td>
+            <td><a href="index.php?menuop=delete_contact&idContacts=<?= $data["idContacts"] ?>">Delete</a></td>
         </tr>
     <?php
         }

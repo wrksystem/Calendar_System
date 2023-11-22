@@ -42,6 +42,9 @@ include("db/conection.php");
                 break;
             case 'update_contact':
                 include("pages/contacts/update_contact.php");
+                break;
+            case 'delete_contact':
+                include("pages/contacts/delete_contact.php");
                 break;    
             case 'tasks':
                 include("pages/tasks/tasks.php");
