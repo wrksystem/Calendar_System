@@ -6,6 +6,13 @@
     <a href="index.php?menuop=register_contact">New Contact</a>
 </div>
 
+<div>
+    <form action="index.php?menuop=contact" method="post">
+        <input type="text" name="search">
+        <input type="Submit" value="PESQUISAR">
+    </form>
+</div>
+
 <table border="1" >
     <thead>
         <tr>
@@ -22,6 +29,8 @@
     </thead>
     <tbody>
     <?php
+        $search = (isset($_POST["search"]))?$_POST["search"]:"";
+
         $sql = "SELECT 
         idContacts,
         upper(nameContact) AS nameContact,
@@ -35,7 +44,12 @@
             'NÃO ESPECIFICADO'
         END AS genderContact,
         DATE_FORMAT(dataNascContact, '%d/%m/%Y') AS dataNascContact
-        FROM table_contacts";
+        FROM table_contacts 
+        WHERE 
+        idContacts = '{$search}' OR
+        nameContact LIKE '%{$search}%'
+        ORDER BY nameContact ASC
+        ";
 
         $rs = mysqli_query($conection, $sql) or die("Erro ao executar a consulta!" . mysqli_error($conection));
         
