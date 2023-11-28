@@ -13,74 +13,76 @@
     </form>
 </div>
 
-<table border="1" >
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Gender</th>
-            <th>Data Nasc</th>
-            <th>Edit</th>
-            <th>Delete</th>            
-        </tr>
-    </thead>
-    <tbody>
-    <?php
-        //paginação start
-        $amount = 10;
-        $page = (isset($_GET["page"]))?(int)$_GET["page"]:1;
-        $start = ($amount * $page) - $amount;
+<div class="my_table">
+    <table class="table-dark table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Gender</th>
+                <th>Data Nasc</th>
+                <th>Edit</th>
+                <th>Delete</th>            
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+            //paginação start
+            $amount = 10;
+            $page = (isset($_GET["page"]))?(int)$_GET["page"]:1;
+            $start = ($amount * $page) - $amount;
 
-        //paginação end
+            //paginação end
 
-        $search = (isset($_POST["search"]))?$_POST["search"]:"";
+            $search = (isset($_POST["search"]))?$_POST["search"]:"";
 
-        $sql = "SELECT 
-        idContacts,
-        upper(nameContact) AS nameContact,
-        lower(emailContact) AS emailContact,
-        foneContact,
-        upper(addressContact) AS addressContact,
-        CASE
-            WHEN genderContact = 'M' THEN 'MASCULINO'
-            WHEN genderContact = 'F' THEN 'FEMININO'
-        ELSE
-            'NÃO ESPECIFICADO'
-        END AS genderContact,
-        DATE_FORMAT(dataNascContact, '%d/%m/%Y') AS dataNascContact
-        FROM table_contacts
+            $sql = "SELECT 
+            idContacts,
+            upper(nameContact) AS nameContact,
+            lower(emailContact) AS emailContact,
+            foneContact,
+            upper(addressContact) AS addressContact,
+            CASE
+                WHEN genderContact = 'M' THEN 'MASCULINO'
+                WHEN genderContact = 'F' THEN 'FEMININO'
+            ELSE
+                'NÃO ESPECIFICADO'
+            END AS genderContact,
+            DATE_FORMAT(dataNascContact, '%d/%m/%Y') AS dataNascContact
+            FROM table_contacts
 
-        WHERE         
-        idContacts = '{$search}' OR
-        nameContact LIKE '%{$search}%'
-        ORDER BY nameContact ASC
-        LIMIT $start, $amount
-        ";
+            WHERE         
+            idContacts = '{$search}' OR
+            nameContact LIKE '%{$search}%'
+            ORDER BY nameContact ASC
+            LIMIT $start, $amount
+            ";
 
-        $rs = mysqli_query($conection, $sql) or die("Erro ao executar a consulta!" . mysqli_error($conection));
-        
-        while($data = mysqli_fetch_assoc($rs) ){            
-        
-    ?>
-        <tr>
-            <td><?= $data["idContacts"] ?></td>
-            <td><?= $data["nameContact"] ?></td>
-            <td><?= $data["emailContact"] ?></td>
-            <td><?= $data["foneContact"] ?></td>
-            <td><?= $data["addressContact"] ?></td>
-            <td><?= $data["genderContact"] ?></td>
-            <td><?= $data["dataNascContact"] ?></td>
-            <td><a href="index.php?menuop=edit_contact&idContacts=<?= $data["idContacts"] ?>">Edit</a></td>
-            <td><a href="index.php?menuop=delete_contact&idContacts=<?= $data["idContacts"] ?>">Delete</a></td>
-        </tr>
-    <?php
-        }
-    ?>    
-    </tbody>
-</table>
+            $rs = mysqli_query($conection, $sql) or die("Erro ao executar a consulta!" . mysqli_error($conection));
+            
+            while($data = mysqli_fetch_assoc($rs) ){            
+            
+        ?>
+            <tr>
+                <td><?= $data["idContacts"] ?></td>
+                <td><?= $data["nameContact"] ?></td>
+                <td><?= $data["emailContact"] ?></td>
+                <td><?= $data["foneContact"] ?></td>
+                <td><?= $data["addressContact"] ?></td>
+                <td><?= $data["genderContact"] ?></td>
+                <td><?= $data["dataNascContact"] ?></td>
+                <td><a href="index.php?menuop=edit_contact&idContacts=<?= $data["idContacts"] ?>">Edit</a></td>
+                <td><a href="index.php?menuop=delete_contact&idContacts=<?= $data["idContacts"] ?>">Delete</a></td>
+            </tr>
+        <?php
+            }
+        ?>    
+        </tbody>
+    </table>
+</div>
 <br>
 
 
