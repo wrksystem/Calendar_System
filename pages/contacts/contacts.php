@@ -14,7 +14,7 @@
 </div>
 
 <div class="my_table">
-    <table class="table-dark table-striped table-bordered">
+    <table class="table-dark table-striped table-bordered table-sn">
         <thead>
             <tr>
                 <th>ID</th>
@@ -68,7 +68,7 @@
         ?>
             <tr>
                 <td><?= $data["idContacts"] ?></td>
-                <td><?= $data["nameContact"] ?></td>
+                <td class="text-nowrap"><?= $data["nameContact"] ?></td>
                 <td><?= $data["emailContact"] ?></td>
                 <td><?= $data["foneContact"] ?></td>
                 <td><?= $data["addressContact"] ?></td>
@@ -83,40 +83,41 @@
         </tbody>
     </table>
 </div>
-<br>
 
-
+<ul class="pagination justify-content-center">
 <?php
 //continuação paginação
-$sqlTotal = "SELECT idContacts FROM table_contacts";
-$qrTotal = mysqli_query($conection, $sqlTotal) or die("Erro ao executar a consulta!" . mysqli_error($conection));
-$numTotal = mysqli_num_rows($qrTotal);
-$totalPage = ceil($numTotal / $amount);
-echo "Total de Registro: $numTotal <br>";
-echo '<a href="?menuop=contact&page=1">Primeira Página</a> ';
+    $sqlTotal = "SELECT idContacts FROM table_contacts";
+    $qrTotal = mysqli_query($conection, $sqlTotal) or die("Erro ao executar a consulta!" . mysqli_error($conection));
+    $numTotal = mysqli_num_rows($qrTotal);
+    $totalPage = ceil($numTotal / $amount);
+    
+    echo "<li class='page-item'><span class='page-link'>Total Registros:" . $numTotal . "</span></li>";
+    echo '<li class="page-item"><a class="page-link" href="?menuop=contact&page=1">Primeira Página</a></li> ';
 
-if($page > 6){
-    ?>
-        <a href="?menuop=contact&page=<?php echo $page-1?>"> << </a>
-    <?php
-}
-for($i = 1; $i <= $totalPage; $i++){    
-    if($i >= ($page - 5) && $i <= ($page + 5)){
-        if($i == $page){
-            echo "$i ";
-        }else{
-            echo "<a href=\"?menuop=contact&page=$i\"> $i </a> ";
+    if($page > 6){
+        ?>
+            <li class="page-item"><a class="page-link" href="?menuop=contact&page=<?php echo $page-1?>"> <<< </a></li>
+        <?php
+    }
+    for($i = 1; $i <= $totalPage; $i++){    
+        if($i >= ($page - 5) && $i <= ($page + 5)){
+            if($i == $page){
+                echo "<li class='page-item active'><span class='page-link'>$i</span></li>";
+            }else{
+                echo "<li class='page-item'><a class='page-link' href=\"?menuop=contact&page=$i\"> $i </a></li>";
+            }
         }
     }
-}
-if($page < ($totalPage - 5)){
-    ?>
-        <a href="?menuop=contact&page=<?php echo $page+1?>"> >> </a>
-    <?php
-}
+    if($page < ($totalPage - 5)){
+        ?>
+            <li class="page-item"><a class="page-link" href="?menuop=contact&page=<?php echo $page+1?>"> >>> </a></li>
+        <?php
+    }
 
-echo "<a href=\"?menuop=contact&page=$totalPage\">Ultima Página</a> ";
-//finalização paginação
+    echo "<li class='page-item'><a class='page-link' href=\"?menuop=contact&page=$totalPage\">Ultima Página</a></li>";
+    //finalização paginação
 
 ?>
+</ul>
 
