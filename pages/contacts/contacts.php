@@ -1,15 +1,15 @@
 <header>
-    <h3>Contacts Page</h3>
+    <h3><i class="bi bi-person-square"></i>Contacts Page</h3>
 </header>
 
 <div>
-    <a href="index.php?menuop=register_contact">New Contact</a>
+    <a class="btn btn-success btn-sn mb-2" href="index.php?menuop=register_contact"><i class="bi bi-person-plus-fill"></i> NEW CONTACT</a>
 </div>
 
 <div>
     <form action="index.php?menuop=contact" method="post">
         <input type="text" name="search">
-        <input type="Submit" value="PESQUISAR">
+        <button class="btn btn-primary btn-sn" type="submit"><i class="bi bi-search"></i>PESQUISAR</button>
     </form>
 </div>
 
@@ -69,13 +69,17 @@
             <tr>
                 <td><?= $data["idContacts"] ?></td>
                 <td class="text-nowrap"><?= $data["nameContact"] ?></td>
-                <td><?= $data["emailContact"] ?></td>
-                <td><?= $data["foneContact"] ?></td>
-                <td><?= $data["addressContact"] ?></td>
+                <td class="text-nowrap"><?= $data["emailContact"] ?></td>
+                <td class="text-nowrap"><?= $data["foneContact"] ?></td>
+                <td class="text-nowrap"><?= $data["addressContact"] ?></td>
                 <td><?= $data["genderContact"] ?></td>
                 <td><?= $data["dataNascContact"] ?></td>
-                <td><a href="index.php?menuop=edit_contact&idContacts=<?= $data["idContacts"] ?>">Edit</a></td>
-                <td><a href="index.php?menuop=delete_contact&idContacts=<?= $data["idContacts"] ?>">Delete</a></td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sn" href="index.php?menuop=edit_contact&idContacts=<?= $data["idContacts"] ?>"><i class="bi bi-pencil-square"></i></a>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-danger btn-sn" href="index.php?menuop=delete_contact&idContacts=<?= $data["idContacts"] ?>"><i class="bi bi-trash"></i></a>
+                </td>
             </tr>
         <?php
             }

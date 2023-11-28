@@ -1,1 +1,1 @@
-<h3>Tasks Page</h3>
+<h3><i class="bi bi-list-task"></i> Tasks Page</h3>
