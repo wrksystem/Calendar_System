@@ -13,7 +13,7 @@ $data = mysqli_fetch_assoc($rs);
 </header>
 
 <div>
-    <form action="index.php?menuop=update_contact" method="post">
+    <form class="needs-validation" action="index.php?menuop=update_contact" method="post" novalidate>
         
         <div class="row">
             <div class="mb-3 col-3">
@@ -30,6 +30,7 @@ $data = mysqli_fetch_assoc($rs);
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                 <input class="form-control" type="text" name="nameContact" value="<?= $data["nameContact"] ?>">
+                
             </div>            
         </div>
 
