@@ -1,42 +1,67 @@
 <header>
-    <h3>Register Contact</h3>
+    <h3><i class="bi bi-person-square"></i> Register Contact</h3>
 </header>
 
 <div>
     <form action="index.php?menuop=insert_contact" method="post">
         
-        <div>
-            <label for="nameContact">Nome</label>
-            <input type="text" name="nameContact">
+        <div  class="mb-3">
+            <label class="form-label" class="form-label" for="nameContact">Nome</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                <input class="form-control" type="text" name="nameContact">
+            </div>
         </div>
 
-        <div>
-            <label for="emailContact">E-mail</label>
-            <input type="email" name="emailContact">
+        <div class="mb-3">
+            <label class="form-label" for="emailContact">E-mail</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                <input class="form-control" type="email" name="emailContact">
+            </div>
         </div>
 
-        <div>
-            <label for="foneContact">Telefone</label>
-            <input type="text" name="foneContact">
+        <div class="mb-3">
+            <label class="form-label" for="foneContact">Telefone</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
+                <input class="form-control" type="text" name="foneContact">
+            </div>
         </div>
 
-        <div>
-            <label for="addressContact">Endereço</label>
-            <input type="text" name="addressContact">
+        <div class="mb-3">
+            <label class="form-label" for="addressContact">Endereço</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
+                <input class="form-control" type="text" name="addressContact">
+            </div>
         </div>
 
-        <div>
-            <label for="genderContact">Sexo</label>
-            <input type="text" name="genderContact">
-        </div>
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label class="form-label" for="genderContact">Sexo</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-gender-ambiguous"></i></span>
+                    <select class="form-select form-control" name="genderContact" id="genderContact">
+                        <option selected>Selecione o Gênero</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                        <option value="O">Outros</option>                
+                    </select>
+                </div>
+            </div>
 
-        <div>
-            <label for="dataNascContact">Data de Nascimento</label>
-            <input type="date" name="dataNascContact">
-        </div>
+            <div class="mb-3 col-6">
+                <label class="form-label" for="dataNascContact">Data de Nascimento</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-calendar-fill"></i></span>
+                    <input class="form-control" type="date" name="dataNascContact">
+                </div>
+            </div>
+        </div>       
 
-        <div>
-            <input type="submit" value="Adicionar" name="btnRegisterContact">
+        <div class="mb-3">
+            <input class="btn btn-success form-control" type="submit" value="Adicionar" name="btnRegisterContact">
         </div>
     </form>
 </div>

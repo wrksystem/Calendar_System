@@ -1,5 +1,5 @@
 <header>
-    <h3><i class="bi bi-person-square"></i>Contacts Page</h3>
+    <h3><i class="bi bi-person-square"></i> Contacts Page</h3>
 </header>
 
 <div>
@@ -8,8 +8,10 @@
 
 <div>
     <form action="index.php?menuop=contact" method="post">
-        <input type="text" name="search">
-        <button class="btn btn-primary btn-sn" type="submit"><i class="bi bi-search"></i>PESQUISAR</button>
+        <div class="input-group">
+            <input class="form-control" type="text" name="search">
+            <button class="btn btn-primary btn-sn" type="submit"><i class="bi bi-search"></i>PESQUISAR</button>
+        </div>
     </form>
 </div>
 

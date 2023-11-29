@@ -9,49 +9,82 @@ $data = mysqli_fetch_assoc($rs);
 
 
 <header>
-    <h3>Edit Contact</h3>
+    <h3><i class="bi bi-person-square"></i> Edit Contact</h3>
 </header>
 
 <div>
     <form action="index.php?menuop=update_contact" method="post">
         
-        <div>
-            <label for="idContacts">ID</label>
-            <input type="text" name="idContacts" value="<?= $data["idContacts"] ?>">
+        <div class="row">
+            <div class="mb-3 col-3">
+                <label  class="form-label" for="idContacts">ID</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                    <input class="form-control" type="text" name="idContacts" value="<?= $data["idContacts"] ?>">
+                </div>            
+            </div>
         </div>
 
-        <div>
-            <label for="nameContact">Nome</label>
-            <input type="text" name="nameContact" value="<?= $data["nameContact"] ?>">
+        <div class="mb-3">
+            <label class="form-label" for="nameContact">Nome</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                <input class="form-control" type="text" name="nameContact" value="<?= $data["nameContact"] ?>">
+            </div>            
         </div>
 
-        <div>
-            <label for="emailContact">E-mail</label>
-            <input type="email" name="emailContact" value="<?= $data["emailContact"] ?>">
+        <div class="mb-3">
+            <label class="form-label" for="emailContact">E-mail</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                <input class="form-control" type="email" name="emailContact" value="<?= $data["emailContact"] ?>">
+            </div>
         </div>
 
-        <div>
-            <label for="foneContact">Telefone</label>
-            <input type="text" name="foneContact" value="<?= $data["foneContact"] ?>">
+        <div class="mb-3">
+            <label class="form-label" for="foneContact">Telefone</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
+                <input class="form-control" type="text" name="foneContact" value="<?= $data["foneContact"] ?>">
+            </div>
         </div>
 
-        <div>
-            <label for="addressContact">Endereço</label>
-            <input type="text" name="addressContact" value="<?= $data["addressContact"] ?>">
+        <div class="mb-3">
+            <label class="form-label" for="addressContact">Endereço</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
+                <input class="form-control" type="text" name="addressContact" value="<?= $data["addressContact"] ?>">
+            </div>    
         </div>
 
-        <div>
-            <label for="genderContact">Sexo</label>
-            <input type="text" name="genderContact" value="<?= $data["genderContact"] ?>">
-        </div>
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label class="form-label" for="genderContact">Sexo</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-gender-ambiguous"></i></span>
+                    <select class="form-select form-control" id="genderContact" name="genderContact">
+                        <option <?php if ($data["genderContact"] == " ") echo  "selected"?> value="">Selecione o Gênero</option>
+                        <option <?php if ($data["genderContact"] == "M") echo  "selected"?> value="">Masculino</option>
+                        <option <?php if ($data["genderContact"] == "F") echo  "selected"?> value="">Feminino</option>
+                        <option <?php if ($data["genderContact"] == "O") echo  "selected"?> value="">Outros</option>
+                    </select>
+                </div>
+                
+            </div>
 
-        <div>
-            <label for="dataNascContact">Data de Nascimento</label>
-            <input type="date" name="dataNascContact" value="<?= $data["dataNascContact"] ?>">
+            <div class="mb-3 col-6"> 
+                <label class="form-label" for="dataNascContact">Data de Nascimento</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-calendar-fill"></i></span>
+                    <input class="form-control" type="date" name="dataNascContact" value="<?= $data["dataNascContact"] ?>">
+                </div>
+            </div>
         </div>
+            
+        
 
-        <div>
-            <input type="submit" value="ATUALIZAR" name="btnUpdateContact">
+        <div class="mb-3">
+            <input class="form-control btn btn-warning" type="submit" value="ATUALIZAR" name="btnUpdateContact">
         </div>
     </form>
 </div>
