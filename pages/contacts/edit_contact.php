@@ -30,7 +30,8 @@ $data = mysqli_fetch_assoc($rs);
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                 <input class="form-control" type="text" name="nameContact" value="<?= $data["nameContact"] ?>">
-                
+                <div class="valid-tooltip">Está correto.</div>
+                <div class="invalid-tooltip">Preenchimento obrigatório até 255 caracteres.</div>                
             </div>            
         </div>
 
