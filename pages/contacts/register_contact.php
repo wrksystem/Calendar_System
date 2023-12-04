@@ -6,7 +6,7 @@
     <form class="needs-validation" action="index.php?menuop=insert_contact" method="post" novalidate>
         
         <div  class="mb-3">
-            <label class="form-label" class="form-label" for="nameContact">Nome</label>
+            <label class="form-label" for="nameContact">Nome</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                 <input class="form-control" type="text" name="nameContact" required>
